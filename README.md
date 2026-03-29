@@ -66,10 +66,10 @@ OS-Lab/
 │
 ├── Assignment-1/
 │ ├── code.ipynb
-│ └── Lab_Report-Assignment-1_Dhruv_Gupta_2401201015.pdf │
+│ └── Lab_Report-Assignment-1
 ├── Assignment-2/
 │ ├── code.ipynb
-│ └── Lab_Report-Assignment-2_Dhruv_Gupta_2401201015.pdf
+│ └── Lab_Report-Assignment-2
 │
 └── README.md
 
