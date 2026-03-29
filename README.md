@@ -16,6 +16,9 @@ Features
 Structure
 Outputs
 
+
+
+
  Assignment 1: CPU Scheduling
 Algorithms Implemented
 First Come First Serve (FCFS)
@@ -31,6 +34,9 @@ Average WT & TAT calculation
 Comparison between FCFS and SJF
 📊 Key Insight
 SJF performs better than FCFS in minimizing waiting time by prioritizing shorter processes.
+
+
+
 
 📘 Assignment 2: Banker’s Algorithm
 🔹 Concept
@@ -60,6 +66,12 @@ Need ≤ Available
 ✔ Safe Sequence detection (Assignment 2)
 ✔ Beginner-friendly code with comments
 ✔ Accurate calculations and logic
+
+
+
+
+
+
 
 📁 Project Structure
 OS-Lab/
@@ -115,6 +127,21 @@ AJAY SINGH
 BCA (AI & Data Science) Roll No : 2401201158
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 Task 1: Process Class + Input Handling
 To do:
 Create Process class (PID, AT, BT)
@@ -167,6 +194,15 @@ Execute one by one
 
 Handle CPU idle
 
+
+
+
+
+
+
+
+
+
 2.1 Sort Processes & Calculate Times
 # Sort processes by Arrival Time
 processes.sort(key=lambda p: p.at)
@@ -190,6 +226,13 @@ for p in processes:
     
     # Update current time
     time = p.ct
+
+
+
+
+
+
+    
 2.2 Display Output
 fcfs_processes = fcfs([Process(p.pid, p.at, p.bt) for p in processes])
 
@@ -210,6 +253,14 @@ Logic:
 Only pick from arrived processes
 
 Choose minimum BT
+
+
+
+
+
+
+
+
 
 3.1 Sort and Calculate Times
 def sjf(processes):
@@ -252,6 +303,12 @@ def sjf(processes):
             time += 1
 
     return completed
+
+
+
+
+
+    
 3.2 Display Output
 sjf_processes = sjf([Process(p.pid, p.at, p.bt) for p in processes])
 
@@ -283,6 +340,15 @@ def gantt_chart(processes, title):
         print(f"| P{p.pid} | {time}", end=" ")
 
     print()
+
+
+
+
+
+
+
+
+    
 4.2 Display Chart (FCFS & SJF)
 gantt_chart(processes, "FCFS")
 gantt_chart(sjf_processes, "SJF")
@@ -295,6 +361,16 @@ Task 5: Performance Analysis
 Calculate And Display Averages for:
 Waiting Time
 Turn Around Time
+
+
+
+
+
+
+
+
+
+
 5.1 First Come First Serve (FCFS)
 avg_wt = sum(p.wt for p in processes) / len(processes)
 avg_tat = sum(p.tat for p in processes) / len(processes)
