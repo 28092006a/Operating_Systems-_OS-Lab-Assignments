@@ -113,3 +113,161 @@ Outputs are verified for correctness
 👨‍💻 Author
 AJAY SINGH
 BCA (AI & Data Science) Roll No : 2401201158
+   "execution_count": 13,
+   "id": "d8aa1d64",
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "def gantt_chart(processes, title):\n",
+    "    print(f\"\\nGantt Chart ({title}):\")\n",
+    "\n",
+    "    time = 0\n",
+    "    print(\"0\", end=\" \")\n",
+    "\n",
+    "    for p in processes:\n",
+    "        if time < p.at:\n",
+    "            time = p.at  # handle idle\n",
+    "\n",
+    "        time += p.bt\n",
+    "        print(f\"| P{p.pid} | {time}\", end=\" \")\n",
+    "\n",
+    "    print()"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "1f0d4e71",
+   "metadata": {},
+   "source": [
+    "#### 4.2 Display Chart (FCFS & SJF)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "id": "09ef3fbe",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Gantt Chart (FCFS):\n",
+      "0 | P1 | 7 | P2 | 11 | P3 | 12 | P4 | 16 | P5 | 18 \n",
+      "\n",
+      "Gantt Chart (SJF):\n",
+      "0 | P1 | 7 | P3 | 8 | P5 | 10 | P2 | 14 | P4 | 18 \n"
+     ]
+    }
+   ],
+   "source": [
+    "gantt_chart(processes, \"FCFS\")\n",
+    "gantt_chart(sjf_processes, \"SJF\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "fa3890d3",
+   "metadata": {},
+   "source": [
+    "# Task 5: Performance Analysis"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "2e7f8278",
+   "metadata": {},
+   "source": [
+    "### Calculate And Display Averages for:\n",
+    "\n",
+    "* Waiting Time\n",
+    "* Turn Around Time"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "1f0a90d9",
+   "metadata": {},
+   "source": [
+    "#### 5.1 First Come First Serve (FCFS)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "id": "8c52f7e3",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Average WT (FCFS): 5.8\n",
+      "Average TAT (FCFS): 9.4\n"
+     ]
+    }
+   ],
+   "source": [
+    "avg_wt = sum(p.wt for p in processes) / len(processes)\n",
+    "avg_tat = sum(p.tat for p in processes) / len(processes)\n",
+    "\n",
+    "print(f\"\\nAverage WT (FCFS): {avg_wt}\")\n",
+    "print(f\"Average TAT (FCFS): {avg_tat}\")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "dd6dcf2f",
+   "metadata": {},
+   "source": [
+    "#### 5.2 Shortest Job First (SJF)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 16,
+   "id": "256954d0",
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Average Waiting Time (SJF): 4.4\n",
+      "Average Turnaround Time (SJF): 8.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "avg_wt_sjf = sum(p.wt for p in sjf_processes) / len(sjf_processes)\n",
+    "avg_tat_sjf = sum(p.tat for p in sjf_processes) / len(sjf_processes)\n",
+    "\n",
+    "print(f\"\\nAverage Waiting Time (SJF): {avg_wt_sjf}\")\n",
+    "print(f\"Average Turnaround Time (SJF): {avg_tat_sjf}\")"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.10.9"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
